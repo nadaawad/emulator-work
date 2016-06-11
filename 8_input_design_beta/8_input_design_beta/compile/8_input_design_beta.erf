@@ -2,6 +2,7 @@ MESSAGE "Pass 1. Scanning modules hierarchy."
 MESSAGE_SP VCP2113 "Module \$root found in current working library."
 BEGINPROGRESS Compiling...
 UPDATEPROGRESS 35
+MESSAGE_SP VCP2113 "Module vXc_add_8_delay found in current working library."
 MESSAGE "Pass 2. Processing instantiations."
 UPDATEPROGRESS 45
 MESSAGE "Pass 3. Processing behavioral statements."
@@ -13,9 +14,10 @@ MESSAGE_SP VCP2113 "Module tb found in current working library."
 MESSAGE_SP VCP2113 "Module first_vector_vxv found in current working library."
 MESSAGE_SP VCP2113 "Module mul_add_result_mem found in current working library."
 MESSAGE_SP VCP2113 "Module second_vector_vxv found in current working library."
-UPDATEPROGRESS 90
+UPDATEPROGRESS 86
+UPDATEPROGRESS 93
 UPDATEPROGRESS 100
 MESSAGE "$root top modules: tb first_vector_vxv mul_add_result_mem second_vector_vxv."
 ENDPROGRESS Compiling...
-SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time: 1[s]."
+SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time: 0[s]."
 MESSAGE "done"

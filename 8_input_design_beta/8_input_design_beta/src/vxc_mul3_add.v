@@ -148,11 +148,7 @@ module vXc_mul3_add(clk,reset,first_row_fixed,constant,second_row_fixed,op,finis
 																				result_mem_we<=1;
 																		@(posedge clk);	
 																		result_mem_we<=0;
-																		if(op==1)
-																			begin
-																			@(posedge clk);
-																			@(posedge clk);	
-																			end
+																		
 																		
 												
 																		counter3<=counter3+1;

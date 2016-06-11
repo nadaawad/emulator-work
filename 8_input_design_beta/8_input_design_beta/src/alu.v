@@ -199,7 +199,7 @@ module Alu(clk,reset,reset_vXv1,reset_mXv1,finish_alpha,matA,pKold,pKold_v2,rKol
 	//x+p*alpha	
 	
 vXc_mul3_add #(.no_of_units(no_of_units),.number_of_clusters(number_of_clusters),.number_of_equations_per_cluster(number_of_equations_per_cluster),.element_width (element_width ))
-	mul_add1(clk,!start_mul_add,pKold_v2 ,div1_result_prev,xKold,1'b0,mul_add1_finish,vector1_mem_we_4,vector2_mem_we_4,result_mem_we_4,result_mem_counter_4,memoryX_input,read_again);  
+	mul_add1(clk,!start_mul_add,pKold_v2 ,div1_result,xKold,1'b0,mul_add1_finish,vector1_mem_we_4,vector2_mem_we_4,result_mem_we_4,result_mem_counter_4,memoryX_input,read_again);  
 	
 	
 		
@@ -218,7 +218,7 @@ vXc_mul3_add #(.no_of_units(no_of_units),.number_of_clusters(number_of_clusters)
 	
 	
 	vXc_mul3_sub #(.no_of_units(no_of_units),.number_of_clusters(number_of_clusters),.number_of_equations_per_cluster(number_of_equations_per_cluster),.element_width (element_width ))
-	mul_add2(clk,!start_mul_add,AP_total,div1_result_prev,rKold_prev,1'b1,mul_add2_finish,AP_read_address,rkold_read_address,result_mem_we_5,result_mem_counter_5,result_mem_in_5);
+	mul_add2(clk,!start_mul_add,AP_total,div1_result,rKold_prev,1'b1,mul_add2_finish,AP_read_address,rkold_read_address,result_mem_we_5,result_mem_counter_5,result_mem_in_5);
 	
 	//rsnew	, third stage 
 	
@@ -255,7 +255,16 @@ vXc_mul3_add #(.no_of_units(no_of_units),.number_of_clusters(number_of_clusters)
 	mul_add3(clk,!mul_add3_start,pKold_v2,div2_result,rKold,1'b0,mul_add3_finish,vector1_mem_we_6,vector2_mem_we_6,result_mem_we_6,result_mem_counter_6,memoryP_input,read_again_2); //module da m7tag tzbeet l finish
 	
 	  
-		
+		 always@(posedge clk)
+		begin
+			if(!reset&&div1_finish)
+	
+				start_mul_add<=1;
+			else
+				start_mul_add<=0;
+	
+		end
+	
 		
 		always@(posedge clk)
 		begin
@@ -415,7 +424,7 @@ vXc_mul3_add #(.no_of_units(no_of_units),.number_of_clusters(number_of_clusters)
 							if(x_to_y_flag)
 								begin 
 									aux_x_to_y_flag <=1 ;
-									start_mul_add<=1;
+									//start_mul_add<=1;
 									y_first_time <= 0;
 								end
 						end	
@@ -423,7 +432,7 @@ vXc_mul3_add #(.no_of_units(no_of_units),.number_of_clusters(number_of_clusters)
 						begin
 							
 							aux_x_to_y_flag <=1;
-							start_mul_add<=1; 
+							//start_mul_add<=1; 
 
 						end	
 					else if(aux_aux_x_to_y_flag)
@@ -456,7 +465,7 @@ vXc_mul3_add #(.no_of_units(no_of_units),.number_of_clusters(number_of_clusters)
 						begin  
 							if(y_to_z_flag)
 								begin 
-									start<=1;  
+									//start<=1;  
 									z_first_time <= 0;
 								end
 						end	
