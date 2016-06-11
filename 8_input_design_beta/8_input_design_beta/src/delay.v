@@ -33,7 +33,7 @@
     reg [31:0]out;
 	
 
-	//beep beep
+	
  always @(in)
    	begin 
        
