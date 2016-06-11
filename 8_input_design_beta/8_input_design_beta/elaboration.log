@@ -1,0 +1,70 @@
+Active-HDL 9.1.2353.4205  2016-06-10 20:36:26
+
+Elaboration top modules:
+Verilog Module                tb
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+Verilog Module                                | Library             | Info | Compiler Version         | Compilation Options
+-----------------------------------------------------------------------------------------------------------------------------------
+tb                                            | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+top_module                                    | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+main_alu                                      | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+control_unit                                  | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+memP                                          | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+memP_v2                                       | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+memR                                          | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+memA                                          | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+memX                                          | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+rKold_prev                                    | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+xKold_prev                                    | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+pKold_prev                                    | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+pKold_prev2                                   | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+mXv1_full_result_prev                         | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+mul_add1_result_prev                          | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+mul_add2_result_prev                          | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+Alu                                           | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+vectorXvector                                 | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+matrix_by_vector_v3                           | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+AP_total                                      | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+vectorXvector_mXv                             | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+division                                      | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+vXc_mul3_add                                  | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+vXc_mul3_sub                                  | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+eight_Dot_Product_Multiply                    | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+N_to_2N_demux                                 | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+Eight_Organizer                               | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+multiply                                      | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+InputIEEE_8_23_to_8_23                        | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+FPMultiplier_8_23_8_23_8_23_uid2              | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+OutputIEEE_8_23_to_8_23                       | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+IntMultiplier_UsingDSP_24_24_48_unsigned_uid4 | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+IntAdder_33_f300_uid23                        | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+IntAdder_42_f300_uid15                        | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+TwoxOne_mux                                   | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+EightxEight_Adder                             | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+adder_subtractor                              | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+FPAddSub_8_23_uid2                            | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+FPAddSub_8_23_uid2_RightShifter               | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+IntAdder_27_f180_uid7                         | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+LZCShifter_28_to_28_counting_32_uid15         | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+IntAdder_34_f180_uid18                        | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+decoder                                       | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+row_by_vector                                 | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+FP_div                                        | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+div_nr_wsticky                                | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+a_s                                           | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+vXc_add_8_delay                               | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+delay                                         | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+vXc_add_8                                     | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
+-----------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------------------------------------------------
+Library                                       | Comment
+-----------------------------------------------------------------------------------------------------------------------------------
+8_input_design_beta                           | None
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+Simulation Options: asim -advdataflow -O5 +access +r +m+tb tb
+

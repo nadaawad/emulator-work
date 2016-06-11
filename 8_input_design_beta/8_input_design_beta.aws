@@ -1,0 +1,12 @@
+[Version]
+Version=9.1
+[Designs]
+8_input_design_beta=.\8_input_design_beta\8_input_design_beta.adf
+[Browser]
+sort=order
+mode=none
+[Order]
+order=1
+macro=
+[Expand]
+8_input_design_beta=1
