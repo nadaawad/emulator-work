@@ -1,5 +1,5 @@
 `define tolerance 32'h283424DC
-module Alu(clk,reset,reset_vXv1,reset_mXv1,finish_alpha,matA,pKold,pKold_v2,rKold,xKold,rKold_prev,memoryP_input,memoryR_input,memoryX_input,finish,iteration_counter_enable,mXv1_finish,result_mem_we_4,rkold_read_address,result_mem_we_5,result_mem_counter_5,read_again,start,read_again_2,result_mem_we_6,vXv1_finish);
+module Alu(clk,reset,reset_iteration,reset_vXv1,reset_mXv1,finish_alpha,matA,pKold,pKold_v2,rKold,xKold,rKold_prev,memoryP_input,memoryR_input,memoryX_input,mul_add3_finish,iteration_counter_enable,mXv1_finish,result_mem_we_4,rkold_read_address,result_mem_we_5,result_mem_counter_5,read_again,start,read_again_2,result_mem_we_6,vXv1_finish);
 	
 	parameter number_of_equations_per_cluster=10;
 	parameter element_width_modified=34;
@@ -10,7 +10,7 @@ module Alu(clk,reset,reset_vXv1,reset_mXv1,finish_alpha,matA,pKold,pKold_v2,rKol
 	parameter total = number_of_equations_per_cluster+additional ; 
 	
 	
-	input wire clk,reset;
+	input wire clk,reset,reset_iteration;
 	
  
     input [element_width*(3* number_of_equations_per_cluster-2*2+2)-1:0] matA; 
@@ -28,7 +28,7 @@ module Alu(clk,reset,reset_vXv1,reset_mXv1,finish_alpha,matA,pKold,pKold_v2,rKol
 	
 	
 	output reg finish_alpha;
-	output reg finish;
+	//output reg finish;
 	output reg iteration_counter_enable; 
 	output reg start;
       
@@ -65,7 +65,7 @@ module Alu(clk,reset,reset_vXv1,reset_mXv1,finish_alpha,matA,pKold,pKold_v2,rKol
 	wire div2_finish;
 	wire mul_add1_finish;
 	wire mul_add2_finish;
-	wire mul_add3_finish;
+	output wire mul_add3_finish;
 	
 	
 	wire AP_total_we;
@@ -82,6 +82,7 @@ module Alu(clk,reset,reset_vXv1,reset_mXv1,finish_alpha,matA,pKold,pKold_v2,rKol
 	reg mul_add3_start;
 	reg start_div2;
 	reg start_mul_add;
+	reg finish_flag;
 	
 
 	
@@ -185,7 +186,19 @@ module Alu(clk,reset,reset_vXv1,reset_mXv1,finish_alpha,matA,pKold,pKold_v2,rKol
 	
 		end
 	
-	
+		
+			//always@(posedge clk)
+//		begin
+//			if(mul_add3_finish)
+//				begin
+//				iteration_counter_enable<=1;
+//				finish_flag<=1;			
+//				end
+//		end
+//		
+		
+		
+		
 	
 	always@(posedge clk)
 		begin 
@@ -209,10 +222,10 @@ module Alu(clk,reset,reset_vXv1,reset_mXv1,finish_alpha,matA,pKold,pKold_v2,rKol
 				
 		always@(posedge clk)
 			begin
-			if(reset)
+			if(reset||mul_add3_finish)
 				begin
-					
-					finish<=0;
+					 finish_flag<=0;
+					//finish<=0;
 					start_div2<=0;
 					start<=0;
 					iteration_counter_enable<=0;

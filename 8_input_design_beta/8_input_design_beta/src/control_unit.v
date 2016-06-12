@@ -76,7 +76,7 @@ module control_unit (clk,reset,finish_alu,finish_alpha,memoryP_write_enable,memo
 	
 	always@(posedge clk)
 		begin 
-			if(reset==1||memoryR_write_address>=(total/8))
+			if(reset==1||finish_alu||memoryR_write_address>=(total/8))
 				begin
 					memoryR_write_address<=0;
 					
@@ -104,7 +104,7 @@ module control_unit (clk,reset,finish_alu,finish_alpha,memoryP_write_enable,memo
 				end
 				
 				
-			 else if(!reset_vXv1&&!finishvXv1_flag)
+			 else if(!reset_vXv1&&!finishvXv1_flag&&!finish_alu)
 				begin	 
 					memoryRprev_we<= 1; 
 					@(posedge clk);
@@ -116,7 +116,7 @@ module control_unit (clk,reset,finish_alu,finish_alpha,memoryP_write_enable,memo
 				end	 
 				
 				
-				 else if(start&&!finish_start_flag)
+				 else if(start&&!finish_start_flag&&!finish_alu)
 				begin	 
 					 
 					@(posedge clk);	
@@ -135,7 +135,16 @@ module control_unit (clk,reset,finish_alu,finish_alpha,memoryP_write_enable,memo
 		
 		always@(posedge clk)
 		begin
-			if (counter4 ==0 /* initialization*/ )	
+			if(reset||finish_alu)
+				begin
+					memoryP_v2_read_address <= 0;
+			
+					counter4 <=0 ;
+					counter5 <=0 ;
+				
+				end
+				
+			else if (counter4 ==0 /* initialization*/ )	
 			begin
 			memoryP_v2_read_address <= 0;
 			counter4 <=1 ;
@@ -143,7 +152,7 @@ module control_unit (clk,reset,finish_alu,finish_alpha,memoryP_write_enable,memo
 			else if((memoryP_v2_read_address >= (total/8)))	
 				begin	
 					memoryP_v2_read_address <= 0;
-					counter5 =1 ;
+					counter5 <=1 ;
 				end	
 			else if(mXv1_finish && counter5==0)
 				begin
@@ -171,7 +180,7 @@ module control_unit (clk,reset,finish_alu,finish_alpha,memoryP_write_enable,memo
 	always@(posedge clk)
 		begin	 
 			NumCyclesTillNow = NumCyclesTillNow +1 ;
-			if(reset==1||memoryA_read_address>=number_of_clusters)
+			if(reset==1||finish_alu||memoryA_read_address>=number_of_clusters)
 				begin
 					memoryA_read_address<=0;
 					
@@ -195,9 +204,13 @@ module control_unit (clk,reset,finish_alu,finish_alpha,memoryP_write_enable,memo
 					
 					end
 			end
+			
+			
+			
+			
 			always@(posedge clk)
 		begin
-			if(reset==1)	    // 3ayez ytla3 fo2 
+			if(reset==1||finish_alu)	    // 3ayez ytla3 fo2 
 				begin  
 					finishvXv1_flag<=0;
 					finish_start_flag<=0;
@@ -214,14 +227,9 @@ module control_unit (clk,reset,finish_alu,finish_alpha,memoryP_write_enable,memo
 						end
 				end
 				
-			
-			
-			else if(increment_read_address_enable&&!halt)	 
-				begin
-					//memoryR_read_address<=memoryR_read_address+1'b1;
-					
-					end
 			end
+			
+			
 			
 			always@(posedge clk)
 		begin
@@ -230,11 +238,8 @@ module control_unit (clk,reset,finish_alu,finish_alpha,memoryP_write_enable,memo
 					memoryX_read_address<=0;
 					
 				end
-			else if(increment_read_address_enable&&!halt)
-				begin
-					//memoryX_read_address<=memoryX_read_address+1'b1;
-				end
-			end	
+				
+			end
 			
 			
 			  
@@ -257,7 +262,7 @@ module control_unit (clk,reset,finish_alu,finish_alpha,memoryP_write_enable,memo
 			
 		always@(posedge clk)
 		begin
-			if(reset==1||memoryP_write_address>=((total/8)))
+			if(reset==1||finish_alu||memoryP_write_address>=((total/8)))
 				begin
 					memoryP_write_address<=0;
 					
@@ -274,7 +279,7 @@ module control_unit (clk,reset,finish_alu,finish_alpha,memoryP_write_enable,memo
 		always @(posedge clk)
 			begin
 			
-		if(reset==1||memoryX_write_address>=((total/8)) )
+		if(reset==1||finish_alu||memoryX_write_address>=((total/8)) )
 				begin
 					memoryX_write_address<=0;
 					
@@ -288,95 +293,94 @@ module control_unit (clk,reset,finish_alu,finish_alpha,memoryP_write_enable,memo
 			
 			
 			  
-			always@(posedge clk)
-				begin
-					if(reset)
-						begin
-							counter<=0;
-							reset_cluster<=0;
-						end	
-						
-					else if(finish_alpha&&!reset)
-						begin
-							counter<=counter+1;
-							if(counter==0)
-								begin
-									reset_cluster<=1;
-									increment_read_address_enable<=1;
-									
-								end
-							else
-								begin
-									reset_cluster<=0;
-									increment_read_address_enable<=0;
-									
-								end
-						end
-						
-					else if (!finish_alpha&&!reset)
-						begin
-						counter<=0;
-						end
-					end		
-					  
+//			always@(posedge clk)
+//				begin
+//					if(reset)
+//						begin
+//							counter<=0;
+//							reset_cluster<=0;
+//						end	
+//						
+//					else if(finish_alpha&&!reset)
+//						begin
+//							counter<=counter+1;
+//							if(counter==0)
+//								begin
+//									reset_cluster<=1;
+//									increment_read_address_enable<=1;
+//									
+//								end
+//							else
+//								begin
+//									reset_cluster<=0;
+//									increment_read_address_enable<=0;
+//									
+//								end
+//						end
+//						
+//					else if (!finish_alpha&&!reset)
+//						begin
+//						counter<=0;
+//						end
+//					end		
+//					  
 							
 					always@(posedge clk)
 						begin
-							if(reset)
+							if(reset||finish_alu)
 								begin 
-								 //   memoryX_write_enable<=0;
+								 
 								    memoryR_write_enable<=0;
-								   // memoryP_write_enable<=0;
+								   
 								end
 								
-							else if(finish_alu&&!reset)
-								begin
-									counter2<=counter2+1;
-									if(counter2==0)
-										begin
-											//reset_cluster<=1;
-											//increment_read_address_enable<=1;
-									//		memoryX_write_enable<=1;
-											//memoryR_write_enable<=1;
-											//memoryP_write_enable<=1;
-											//flag2<=1;
-										end
-									else
-										begin
-											//reset_cluster<=0;
-											//increment_read_address_enable<=0;
-										//	memoryX_write_enable<=0;
-											//memoryR_write_enable<=0;
-											//memoryP_write_enable<=0; 
-											//flag2<=0;
-										end
-									end
-									else if(!finish_alu&&!reset)
-										counter2<=0;
-									end	
-				
-			
-						always@(posedge clk)
+							end
+							
+							
+							
+							
+							
+							always@(posedge clk)
 							begin
 								if(reset)
-									begin
+									begin	
+										//reset_cluster<=0;
 										counter3<=0;
 										iteration_counter<=0;
 									end
 									
-								else if(iteration_counter_enable&&!reset)
+								else if(finish_alu&&!reset)
 									begin
 										counter3<=counter3+1;
-										if(counter3==0)
-											iteration_counter<=iteration_counter+1;
+										if(counter3==4)	 
+											begin
+											iteration_counter<=iteration_counter+1;	 
+											if(iteration_counter==5)
+												halt<=1;
+											//reset_cluster<=1;  
+											end
 										end
 									
-									else if(!iteration_counter_enable&&!reset) 
+									else if(!finish_alu&&!reset)
+										begin
 										counter3<=0;
+										//reset_cluster<=0;  
+										end
 									end
 						
 						
-					always@(posedge clk)
+					
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									always@(posedge clk)
 						begin
 							$display("%d",memoryX_read_address);
 							//$display("%h",iteration_counter);

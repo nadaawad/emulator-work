@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module top_module(clk,reset,reset_vXv1,reset_mXv1,halt,reset_cluster);
+module top_module(clk,reset,finish,reset_vXv1,reset_mXv1,halt,reset_cluster);
 	
 	parameter number_of_clusters =1;
 	parameter number_of_equations_per_cluster =19;
@@ -17,9 +17,10 @@ module top_module(clk,reset,reset_vXv1,reset_mXv1,halt,reset_cluster);
 	output wire reset_cluster;
 	
 	//wire write_enable;
-	wire finish;
+	output wire finish;
 	wire [memories_address_width - 1 : 0] memoryX_write_address;
-	wire [memories_address_width - 1 : 0] memoryP_write_address;
+	wire [memories_address_width - 1 : 0] memoryP_write_address; 
+	wire [memories_address_width - 1 : 0] memoryP_write_address_old;
 	wire [memories_address_width - 1 : 0] memoryR_write_address;
 	wire [memories_address_width - 1 : 0] memoryX_read_address;
 	wire [memories_address_width - 1 : 0] memoryA_read_address;
@@ -36,6 +37,7 @@ module top_module(clk,reset,reset_vXv1,reset_mXv1,halt,reset_cluster);
 	wire [number_of_equations_per_cluster * element_width - 1 : 0] memoryX_output;
 	wire [no_of_units * element_width - 1 : 0] memoryX_input;
 	wire [no_of_units * element_width - 1 : 0] memoryP_input;
+	wire [no_of_units * element_width - 1 : 0] memoryP_input_old;
 	wire [number_of_equations_per_cluster * element_width - 1 : 0] memoryR_input;
 	
 
@@ -65,13 +67,13 @@ module top_module(clk,reset,reset_vXv1,reset_mXv1,halt,reset_cluster);
 
 
 	main_alu #(.number_of_clusters(number_of_clusters),.number_of_equations_per_cluster(number_of_equations_per_cluster),.element_width (element_width ))
-	alu(clk,reset,reset_vXv1,reset_mXv1,finish_alpha,memoryA_output,memoryP_output,memoryP_v2_output,memoryR_output,memoryR_read_address,memoryX_output,memoryP_input,memoryR_input,memoryX_input,finish,finish_iteration,mXv1_finish,result_mem_we_4,memoryRprev_we,result_mem_we_5,result_mem_counter_5,read_again,start,read_again_2,result_mem_we_6,vXv1_finish);
+	alu(clk,reset,reset_cluster,reset_vXv1,reset_mXv1,finish_alpha,memoryA_output,memoryP_output,memoryP_v2_output,memoryR_output,memoryR_read_address,memoryX_output,memoryP_input,memoryR_input,memoryX_input,finish,finish_iteration,mXv1_finish,result_mem_we_4,memoryRprev_we,result_mem_we_5,result_mem_counter_5,read_again,start,read_again_2,result_mem_we_6,vXv1_finish);
 	
 	control_unit #(.no_of_units(no_of_units),.number_of_clusters(number_of_clusters),.number_of_equations_per_cluster(number_of_equations_per_cluster),.element_width (element_width ),.memories_address_width(memories_address_width)) 
 	CU(clk,reset,finish,finish_alpha,memoryP_write_enable,memoryR_write_enable,memoryX_write_enable,memoryA_read_address,memoryP_read_address,memoryP_v2_read_address,memoryR_read_address,memoryX_read_address,memoryP_write_address,memoryR_write_address ,memoryX_write_address,halt,reset_cluster,finish_iteration,reset_vXv1,mXv1_finish,result_mem_we_4,memoryRprev_we,result_mem_we_5,result_mem_counter_5,read_again,start,read_again_2,result_mem_we_6,vXv1_finish);
 	
 	memP #(.number_of_clusters(number_of_clusters),.number_of_equations_per_cluster(number_of_equations_per_cluster),.element_width (element_width ),.memories_address_width(memories_address_width)) 
-	matP(clk, memoryP_input, memoryP_write_enable,memoryP_read_address,memoryP_write_address, memoryP_output,finishP);
+	matP(clk, memoryP_input_old, memoryP_write_enable_old,memoryP_read_address,memoryP_write_address_old, memoryP_output,finishP);
 	
 	memP_v2 #(.number_of_clusters(number_of_clusters),.number_of_equations_per_cluster(number_of_equations_per_cluster),.element_width (element_width ),.memories_address_width(memories_address_width)) 
 	matP_v2(clk, memoryP_input, memoryP_write_enable,memoryP_v2_read_address,memoryP_write_address, memoryP_v2_output,finishP_v2);

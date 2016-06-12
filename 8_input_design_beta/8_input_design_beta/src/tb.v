@@ -5,13 +5,15 @@ module tb();
 	reg clk;
 	reg reset;
 	wire halt;
+	wire finish;
 	reg reset_vXv1;
 	reg reset_mXv1;
 	wire reset_cluster;
 	integer counter1= 0;
-	integer counter2=0;
+	integer counter2=0;	
+	integer counter3=0;
 	
-	top_module uut (clk,reset,reset_vXv1,reset_mXv1,halt,reset_cluster);
+	top_module uut (clk,reset,finish,reset_vXv1,reset_mXv1,halt,reset_cluster);
 	
 	initial
 		begin
@@ -23,8 +25,11 @@ module tb();
 		
 		always @(posedge clk)
 			begin
-				if(!reset_cluster)
-					begin  
+				
+				if(!finish)	 
+					
+					begin
+						 counter3<=0;
 						if(counter1==0)
 							begin
 								counter1= counter1+1;
@@ -41,14 +46,22 @@ module tb();
 								counter1 = counter1+1;
 							end
 						end
+						
+						
 						else
 							begin
 								reset_vXv1<=1;
 								reset_mXv1<=0;
-								@(posedge clk);
-							    @(posedge clk);
-							    reset_vXv1<=0;
-							    //reset_mXv1<=1;
+								counter3<=counter3+1;
+								if(counter3==4)
+									
+									begin
+							    
+										reset_vXv1<=0;
+								
+										reset_mXv1<=1;
+								end
+								
 							end 
 						end
 						

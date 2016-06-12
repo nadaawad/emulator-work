@@ -135,9 +135,11 @@ always@(posedge clk) begin
 		 end
 		 
 	 else if(!start)
+		begin 
+		 counter<=0; 
+		 sel<=0;
 		 
-		   counter<=0;
-   
+		end
    else if(!reset&&start)
 	
 	   begin
