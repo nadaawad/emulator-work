@@ -1,8 +1,8 @@
-timestamp=1465691243705
+timestamp=1465727339390
 
 [$root]
-A/$root=22|""|0|1*7632694
-BinI32/$root=3*4584682
+A/$root=22|""|0|1*7924525
+BinI32/$root=3*4766264
 Version=9.1.2353.4205  (Windows)|0000001a789cd3cd51b088cfcc2b282d894f492dce4ccf8b4f4a2d4954d0f53702007d490923
 
 [AP_total]
@@ -13,9 +13,9 @@ R=./src/ap_total_mem.v|1
 Version=9.1.2353.4205  (Windows)|0000001a789cd3cd51b088cfcc2b282d894f492dce4ccf8b4f4a2d4954d0f53702007d490923
 
 [Alu]
-A/Alu=22|./src/alu.v|2|1*7722442
-BinI32/Alu=3*4662255
-P/~emb=4905,5740,6841,7566
+A/Alu=22|./src/alu.v|2|1*7925027
+BinI32/Alu=3*4766403
+P/~emb=2032,2827,3857,4559
 R=./src/alu.v|2
 Version=9.1.2353.4205  (Windows)|0000001a789cd3cd51b088cfcc2b282d894f492dce4ccf8b4f4a2d4954d0f53702007d490923
 
@@ -342,9 +342,9 @@ R=./src/vXc_add_8_delay.v|1
 Version=9.1.2353.4205  (Windows)|0000001a789cd3cd51b088cfcc2b282d894f492dce4ccf8b4f4a2d4954d0f53702007d490923
 
 [vXc_mul3_add]
-A/vXc_mul3_add=22|./src/vxc_mul3_add.v|1|1*7752495
-BinI32/vXc_mul3_add=3*4689567
-P/~emb=1510,1986,2789,3180
+A/vXc_mul3_add=22|./src/vxc_mul3_add.v|1|1*7899997
+BinI32/vXc_mul3_add=3*4755075
+P/~emb=1004,1457,2213,2605
 R=./src/vxc_mul3_add.v|1
 Version=9.1.2353.4205  (Windows)|0000001a789cd3cd51b088cfcc2b282d894f492dce4ccf8b4f4a2d4954d0f53702007d490923
 
@@ -363,9 +363,9 @@ R=./src/vectorxvector.v|1
 Version=9.1.2353.4205  (Windows)|0000001a789cd3cd51b088cfcc2b282d894f492dce4ccf8b4f4a2d4954d0f53702007d490923
 
 [vectorXvector_mXv]
-A/vectorXvector_mXv=22|./src/vectorxvector_mxv.v|1|1*7747423
-BinI32/vectorXvector_mXv=3*4686880
-P/~emb=1390,1858,2424,2679
+A/vectorXvector_mXv=22|./src/vectorxvector_mxv.v|1|1*7919553
+BinI32/vectorXvector_mXv=3*4763222
+P/~emb=915,1375,1928,2184
 R=./src/vectorxvector_mxv.v|1
 Version=9.1.2353.4205  (Windows)|0000001a789cd3cd51b088cfcc2b282d894f492dce4ccf8b4f4a2d4954d0f53702007d490923
 
@@ -378,27 +378,28 @@ Version=9.1.2353.4205  (Windows)|0000001a789cd3cd51b088cfcc2b282d894f492dce4ccf8
 
 [~A]
 LastVerilogToplevel=xKold_prev
-ModifyID=15068
+ModifyID=15156
 Version=73
 e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/2x1_mux.v_8_dot_product.v_8_organizer.v_8x8_adder.v_a_s.v_adder_subtractor.v_ap_total_mem.v_control_unit.v_decoder.v_div_nr_wsticky.v_division.v_first_vector_vxv_mem.v_alu.v_fp_div.v_fpaddsub_8_23_uid2.v_fpaddsub_8_23_uid2_rightshifter.v_fpmultiplier_8_23_8_23_8_23_uid2.v_inputieee_8_23_to_8_23.v_intadder_27_f180_uid7.v_intadder_33_f300_uid23.v_intadder_34_f180_uid18.v_intadder_42_f300_uid15.v_intmultiplier_usingdsp_24_24_48_unsigned_uid4.v_lzcshifter_28_to_28_counting_32_uid15.v_main_alu.v_matrix_by_vector_v3.v_mema.v_memp.v_memp_v2.v_memr.v_memx.v_mul_add_result_mem.v_mul_add1_result_prev.v_mul_add2_result_prev.v_multiply.v_mxv1_full_result_prev.v_n_to_2n_demux.v_outputieee_8_23_to_8_23.v_pkold_prev.v_pkold_prev2.v_rkold_prev.v_row_by_vector_module.v_second_vector_vxv_mem.v_tb.v_top_module.v_vectorxvector.v_vectorxvector_mxv.v_vxc_add_8.v_vxc_mul3_add.v_vxc_mul3_sub.v_xkold_prev.v=0*2891238*2922349
 e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/2x1_mux.v_8_dot_product.v_8_organizer.v_8x8_adder.v_a_s.v_adder_subtractor.v_ap_total_mem.v_control_unit.v_decoder.v_div_nr_wsticky.v_division.v_first_vector_vxv_mem.v_alu.v_fp_div.v_fpaddsub_8_23_uid2.v_fpaddsub_8_23_uid2_rightshifter.v_fpmultiplier_8_23_8_23_8_23_uid2.v_inputieee_8_23_to_8_23.v_intadder_27_f180_uid7.v_intadder_33_f300_uid23.v_intadder_34_f180_uid18.v_intadder_42_f300_uid15.v_intmultiplier_usingdsp_24_24_48_unsigned_uid4.v_lzcshifter_28_to_28_counting_32_uid15.v_main_alu.v_matrix_by_vector_v3.v_mema.v_memp.v_memp_v2.v_memr.v_memx.v_mul_add_result_mem.v_mul_add1_result_prev.v_mul_add2_result_prev.v_multiply.v_mxv1_full_result_prev.v_n_to_2n_demux.v_outputieee_8_23_to_8_23.v_pkold_prev.v_pkold_prev2.v_rkold_prev.v_row_by_vector_module.v_second_vector_vxv_mem.v_tb.v_top_module.v_vectorxvector.v_vectorxvector_mxv.v_vxc_add_8.v_vxc_mul3_add.v_vxc_mul3_sub.v_xkold_prev.v_delay.v_vXc_add_8_=0*4796308*4825342
-e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/alu.v=0*4336035*4339087
+e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/alu.v=0*4852921*4855061
 e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/control_unit.v=0*2982344*2984829
 e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/delay.v=0*3744330*3744919
 e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/main_alu.v=0*4504275*4505556
 e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/top_module.v=0*2388574*2390161
 e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/vXc_add_8_delay.v=0*3381224*3382512
-e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/vxc_mul3_add.v=0*3933160*3934797
+e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/vectorxvector_mxv.v=0*4845272*4846514
+e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/vxc_mul3_add.v=0*4831387*4832960
 
 [~MFT]
-0=1535|08_input_design_beta.mgf|4825342|788450
-1=2489|18_input_design_beta.mgf|7898260|6215212
-3=2489|38_input_design_beta.mgf|4754427|3733664
+0=1557|08_input_design_beta.mgf|4855061|796964
+1=2505|18_input_design_beta.mgf|7925027|6255119
+3=2505|38_input_design_beta.mgf|4766403|3747618
 
 [~U]
-$root=12|0*4666833|
+$root=12|0*4847092|
 AP_total=12|0*4691936||0x80
-Alu=12|0*4711362||0x80
+Alu=12|0*4847706||0x80
 Eight_Organizer=12|0*4674216||0x80
 EightxEight_Adder=12|0*4676178||0x80
 FPAddSub_8_23_uid2=12|0*4683351||0x80
@@ -445,9 +446,9 @@ tb=12|0*4783698||0x90
 top_module=12|0*4785742||0x80
 vXc_add_8=12|0*4789151||0x80
 vXc_add_8_delay=12|0*4791591||0x80
-vXc_mul3_add=12|0*4729192||0x80
+vXc_mul3_add=12|0*4828070||0x80
 vXc_mul3_sub=12|0*4733122||0x80
 vectorXvector=12|0*4719639||0x80
-vectorXvector_mXv=12|0*4726072||0x80
+vectorXvector_mXv=12|0*4842664||0x80
 xKold_prev=12|0*4794118||0x90
 

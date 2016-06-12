@@ -54,7 +54,7 @@ module Alu(clk,reset,reset_vXv1,reset_mXv1,finish_alpha,matA,pKold,pKold_v2,rKol
 	wire [element_width-1:0]vXv2_result;
 	wire [element_width-1:0]vXv3_result;
 	wire [element_width*no_of_units-1:0]mXv1_result;
-	wire [element_width*number_of_equations_per_cluster-1:0]mul_add3_result;
+	
 
     wire[element_width-1:0]div1_result;
 	wire[element_width-1:0]div2_result;
@@ -67,16 +67,10 @@ module Alu(clk,reset,reset_vXv1,reset_mXv1,finish_alpha,matA,pKold,pKold_v2,rKol
 	wire mul_add2_finish;
 	wire mul_add3_finish;
 	
-	wire vector1_mem_we_3;
+	
 	wire AP_total_we;
 	wire [element_width*no_of_units-1:0] AP_total;  
 	wire[31:0]counter;
-	wire vector1_mem_we_4;
-	wire vector2_mem_we_4;
-	wire [31:0]result_mem_counter_4;
-	wire vector1_mem_we_6;
-	wire vector2_mem_we_6;
-	wire[31:0] result_mem_counter_6;
 	wire[31:0] AP_read_address ; 
 	 
 	 
@@ -114,7 +108,7 @@ module Alu(clk,reset,reset_vXv1,reset_mXv1,finish_alpha,matA,pKold,pKold_v2,rKol
 	AP_total_mem(clk,mXv1_result,counter,AP_read_address,AP_total_we,AP_total);
 
 	vectorXvector_mXv #(.no_of_units(no_of_units),.number_of_clusters(number_of_clusters),.number_of_equations_per_cluster(number_of_equations_per_cluster),.element_width (element_width ))
-	vXv2(clk,!mXv1_finish,pKold_v2,mXv1_result,vXv2_result,vXv2_finish,vector1_mem_we_3,AP_total_we,counter);
+	vXv2(clk,!mXv1_finish,pKold_v2,mXv1_result,vXv2_result,vXv2_finish,AP_total_we,counter);
 	
 	
 	//calc alpha
@@ -125,7 +119,7 @@ module Alu(clk,reset,reset_vXv1,reset_mXv1,finish_alpha,matA,pKold,pKold_v2,rKol
 	
 	//x+p*alpha	
 	vXc_mul3_add #(.no_of_units(no_of_units),.number_of_clusters(number_of_clusters),.number_of_equations_per_cluster(number_of_equations_per_cluster),.element_width (element_width ))
-	mul_add1(clk,!start_mul_add,pKold_v2 ,div1_result,xKold,1'b0,mul_add1_finish,vector1_mem_we_4,vector2_mem_we_4,result_mem_we_4,result_mem_counter_4,memoryX_input,read_again);  
+	mul_add1(clk,!start_mul_add,pKold_v2,div1_result,xKold,1'b0,mul_add1_finish,result_mem_we_4,memoryX_input,read_again);  
 	
 	
 		
@@ -148,7 +142,7 @@ module Alu(clk,reset,reset_vXv1,reset_mXv1,finish_alpha,matA,pKold,pKold_v2,rKol
 	//r+(rsnew/rsold)*p
 	
 	vXc_mul3_add #(.no_of_units(no_of_units),.number_of_clusters(number_of_clusters),.number_of_equations_per_cluster(number_of_equations_per_cluster),.element_width (element_width ))
-	mul_add3(clk,!mul_add3_start,pKold_v2,div2_result,rKold,1'b0,mul_add3_finish,vector1_mem_we_6,vector2_mem_we_6,result_mem_we_6,result_mem_counter_6,memoryP_input,read_again_2); //module da m7tag tzbeet l finish
+	mul_add3(clk,!mul_add3_start,pKold_v2,div2_result,rKold,1'b0,mul_add3_finish,result_mem_we_6,memoryP_input,read_again_2); //module da m7tag tzbeet l finish
 	
 	  
 	

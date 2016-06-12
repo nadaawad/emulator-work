@@ -48,9 +48,7 @@ module vXc_mul3_sub(clk,reset,first_row_plus_additional,constant,second_row_plus
 		begin  
 			counter3<=0; 
 			counter2<=0;
-			counter5<=0;
-		//	vector1_mem_we<=0;
-			//vector2_mem_we<=0;
+			counter5<=0;   
 			result_mem_we<=0;
 			end
 		
@@ -59,8 +57,7 @@ module vXc_mul3_sub(clk,reset,first_row_plus_additional,constant,second_row_plus
 			if(reset)
 				begin
 				counter<=0;
-				//vector1_mem_we<=1;
-			    //vector2_mem_we<=1;	 
+					 
 				end
 				
 			else if(!reset)

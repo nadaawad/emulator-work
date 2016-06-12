@@ -1,4 +1,4 @@
-module vectorXvector_mXv(clk,reset,first_row_plus_additional,vector2,result,finish,vector1_mem_we,AP_total_mem_we,counter2); 
+module vectorXvector_mXv(clk,reset,first_row_plus_additional,vector2,result,finish,AP_total_mem_we,counter2); 
 
     parameter number_of_equations_per_cluster=16;
 	parameter element_width_modified=34;
@@ -24,7 +24,7 @@ module vectorXvector_mXv(clk,reset,first_row_plus_additional,vector2,result,fini
 	//output wire [element_width*number_of_equations_per_cluster-1:0] AP;
 	output wire [element_width-1:0]result;
 	output wire finish;		 
-	output reg vector1_mem_we;
+	
 	output reg AP_total_mem_we;	 
 	output reg[31:0] counter2;
 	
@@ -64,13 +64,13 @@ module vectorXvector_mXv(clk,reset,first_row_plus_additional,vector2,result,fini
 			if(reset)
 				begin
 				counter<=0;
-				vector1_mem_we<=1;
+				
 				end
 			else if(!reset)
 				begin
 					if (counter==0)
 						begin 
-							vector1_mem_we<=0;
+							
 							//first_row_plus_additional[0] <= {vector1,{additional{32'b0}}};
 						end
 						counter <= counter+1;
