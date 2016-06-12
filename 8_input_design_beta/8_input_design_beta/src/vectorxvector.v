@@ -1,4 +1,4 @@
-module vectorXvector(clk,reset,first_row_plus_additional,second_row_plus_additional,result,finish,vector1_mem_we,vector2_mem_we); 
+module vectorXvector(clk,reset,first_row_plus_additional,second_row_plus_additional,result,finish); 
 
     parameter number_of_equations_per_cluster=10;
 	parameter element_width_modified=34;
@@ -20,8 +20,8 @@ module vectorXvector(clk,reset,first_row_plus_additional,second_row_plus_additio
 	output wire [element_width-1:0]result;
 	output wire finish;
 	
-	output reg vector1_mem_we;
-    output reg vector2_mem_we;
+	
+    
 	
 	input wire [element_width*(no_of_units)-1:0] first_row_plus_additional;
 	input wire [element_width*(no_of_units)-1:0] second_row_plus_additional;	   
@@ -54,15 +54,14 @@ module vectorXvector(clk,reset,first_row_plus_additional,second_row_plus_additio
 			if(reset)
 				begin
 					counter<=0;	
-				    vector1_mem_we<=1;
-                    vector2_mem_we<=1;
+				    
+                   
 				end
 			else
 				begin
 					if (counter==0)
 						begin
-							vector1_mem_we<=0;
-                            vector2_mem_we<=0;
+							
 							counter <= counter+1;
 						end
 					

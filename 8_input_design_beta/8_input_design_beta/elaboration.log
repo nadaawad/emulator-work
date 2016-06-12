@@ -1,4 +1,4 @@
-Active-HDL 9.1.2353.4205  2016-06-11 23:53:18
+Active-HDL 9.1.2353.4205  2016-06-12 02:42:28
 
 Elaboration top modules:
 Verilog Module                tb
@@ -17,12 +17,6 @@ memR                                          | 8_input_design_beta |      | 9.1
 memA                                          | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
 memX                                          | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
 rKold_prev                                    | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
-xKold_prev                                    | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
-pKold_prev                                    | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
-pKold_prev2                                   | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
-mXv1_full_result_prev                         | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
-mul_add1_result_prev                          | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
-mul_add2_result_prev                          | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
 Alu                                           | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
 vectorXvector                                 | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
 matrix_by_vector_v3                           | 8_input_design_beta |      | 9.1.2353.4205  (Windows) | -l 8_input_design_beta -O2
@@ -64,7 +58,3 @@ Library                                       | Comment
 -----------------------------------------------------------------------------------------------------------------------------------
 8_input_design_beta                           | None
 -----------------------------------------------------------------------------------------------------------------------------------
-
-
-Simulation Options: asim -advdataflow -O5 +access +r +m+tb tb
-

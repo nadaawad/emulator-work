@@ -1,23 +1,91 @@
 MESSAGE "Pass 1. Scanning modules hierarchy."
 MESSAGE_SP VCP2113 "Module \$root found in current working library."
 BEGINPROGRESS Compiling...
-UPDATEPROGRESS 35
-MESSAGE_SP VCP2113 "Module vXc_add_8_delay found in current working library."
+UPDATEPROGRESS 1
+UPDATEPROGRESS 2
+UPDATEPROGRESS 3
+UPDATEPROGRESS 4
+UPDATEPROGRESS 5
+UPDATEPROGRESS 6
+UPDATEPROGRESS 7
+UPDATEPROGRESS 8
+UPDATEPROGRESS 9
+UPDATEPROGRESS 10
+UPDATEPROGRESS 11
+UPDATEPROGRESS 12
+UPDATEPROGRESS 13
+UPDATEPROGRESS 14
+UPDATEPROGRESS 15
+UPDATEPROGRESS 16
+UPDATEPROGRESS 17
+UPDATEPROGRESS 18
+UPDATEPROGRESS 19
+UPDATEPROGRESS 20
+UPDATEPROGRESS 21
+UPDATEPROGRESS 22
+UPDATEPROGRESS 23
+UPDATEPROGRESS 24
+UPDATEPROGRESS 25
+UPDATEPROGRESS 26
+UPDATEPROGRESS 27
+UPDATEPROGRESS 28
+UPDATEPROGRESS 29
+UPDATEPROGRESS 30
+UPDATEPROGRESS 31
+UPDATEPROGRESS 32
+UPDATEPROGRESS 33
+UPDATEPROGRESS 34
 MESSAGE "Pass 2. Processing instantiations."
+UPDATEPROGRESS 36
+UPDATEPROGRESS 37
+UPDATEPROGRESS 38
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol mXv1_finish has not been declared in module top_module." "e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/top_module.v" 68 1
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol memoryP_write_enable has not been declared in module top_module." "e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/top_module.v" 71 1
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol memoryR_write_enable has not been declared in module top_module." "e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/top_module.v" 71 1
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol memoryX_write_enable has not been declared in module top_module." "e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/top_module.v" 71 1
+MESSAGE_SP VCP2876 "Implicit net declaration, symbol finishP_v2 has not been declared in module top_module." "e:/4th computer/graduation projects new design/8-input-design-9-6/8_input_design_beta/8_input_design_beta/src/top_module.v" 77 1
+UPDATEPROGRESS 40
+UPDATEPROGRESS 41
 UPDATEPROGRESS 45
 MESSAGE "Pass 3. Processing behavioral statements."
+UPDATEPROGRESS 46
+UPDATEPROGRESS 48
+UPDATEPROGRESS 50
+UPDATEPROGRESS 52
+UPDATEPROGRESS 54
+UPDATEPROGRESS 56
+UPDATEPROGRESS 57
+UPDATEPROGRESS 59
+UPDATEPROGRESS 61
+UPDATEPROGRESS 63
+UPDATEPROGRESS 65
+UPDATEPROGRESS 67
+UPDATEPROGRESS 68
 UPDATEPROGRESS 80
 MESSAGE "Running Optimizer."
 MESSAGE "ELB/DAG code generating."
 MESSAGE_SP VCP2113 "Module \$root found in current working library."
-MESSAGE_SP VCP2113 "Module tb found in current working library."
-MESSAGE_SP VCP2113 "Module first_vector_vxv found in current working library."
-MESSAGE_SP VCP2113 "Module mul_add_result_mem found in current working library."
-MESSAGE_SP VCP2113 "Module second_vector_vxv found in current working library."
+UPDATEPROGRESS 81
+UPDATEPROGRESS 82
+UPDATEPROGRESS 83
+UPDATEPROGRESS 84
+UPDATEPROGRESS 85
 UPDATEPROGRESS 86
+UPDATEPROGRESS 87
+UPDATEPROGRESS 88
+UPDATEPROGRESS 89
+UPDATEPROGRESS 90
+UPDATEPROGRESS 91
+UPDATEPROGRESS 92
 UPDATEPROGRESS 93
-UPDATEPROGRESS 100
-MESSAGE "$root top modules: tb first_vector_vxv mul_add_result_mem second_vector_vxv."
+UPDATEPROGRESS 94
+UPDATEPROGRESS 95
+UPDATEPROGRESS 96
+UPDATEPROGRESS 97
+UPDATEPROGRESS 98
+UPDATEPROGRESS 99
+MESSAGE "Unit top modules: first_vector_vxv mul_add_result_mem mul_add1_result_prev mul_add2_result_prev mXv1_full_result_prev pKold_prev pKold_prev2 second_vector_vxv tb xKold_prev."
+MESSAGE "$root top modules: tb first_vector_vxv mul_add_result_mem second_vector_vxv mul_add1_result_prev mul_add2_result_prev mXv1_full_result_prev pKold_prev pKold_prev2 xKold_prev."
 ENDPROGRESS Compiling...
-SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time: 0[s]."
+SUCCESS "Compile success 0 Errors 0 Warnings  Analysis time: 1[s]."
 MESSAGE "done"

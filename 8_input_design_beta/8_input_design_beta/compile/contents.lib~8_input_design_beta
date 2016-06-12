@@ -1,4 +1,4 @@
-11674
+15068
 ~M 0 "" 0 $root
 ~A 1 "" 0 $root
 ~M 1 "./src/ap_total_mem.v" 1 AP_total
@@ -55,7 +55,7 @@
 ~A 1 "./src/8_dot_product.v" 2 eight_Dot_Product_Multiply
 ~M 3 "./src/first_vector_vxv_mem.v" 1 first_vector_vxv
 ~A 1 "./src/first_vector_vxv_mem.v" 1 first_vector_vxv
-~M 1 "./src/mxv1_full_result_prev.v" 1 mXv1_full_result_prev
+~M 3 "./src/mxv1_full_result_prev.v" 1 mXv1_full_result_prev
 ~A 1 "./src/mxv1_full_result_prev.v" 1 mXv1_full_result_prev
 ~M 1 "./src/main_alu.v" 2 main_alu
 ~A 1 "./src/main_alu.v" 2 main_alu
@@ -71,17 +71,17 @@
 ~A 1 "./src/memr.v" 1 memR
 ~M 1 "./src/memx.v" 1 memX
 ~A 1 "./src/memx.v" 1 memX
-~M 1 "./src/mul_add1_result_prev.v" 1 mul_add1_result_prev
+~M 3 "./src/mul_add1_result_prev.v" 1 mul_add1_result_prev
 ~A 1 "./src/mul_add1_result_prev.v" 1 mul_add1_result_prev
-~M 1 "./src/mul_add2_result_prev.v" 1 mul_add2_result_prev
+~M 3 "./src/mul_add2_result_prev.v" 1 mul_add2_result_prev
 ~A 1 "./src/mul_add2_result_prev.v" 1 mul_add2_result_prev
 ~M 3 "./src/mul_add_result_mem.v" 1 mul_add_result_mem
 ~A 1 "./src/mul_add_result_mem.v" 1 mul_add_result_mem
 ~M 1 "./src/multiply.v" 25 multiply
 ~A 1 "./src/multiply.v" 25 multiply
-~M 1 "./src/pkold_prev.v" 1 pKold_prev
+~M 3 "./src/pkold_prev.v" 1 pKold_prev
 ~A 1 "./src/pkold_prev.v" 1 pKold_prev
-~M 1 "./src/pkold_prev2.v" 1 pKold_prev2
+~M 3 "./src/pkold_prev2.v" 1 pKold_prev2
 ~A 1 "./src/pkold_prev2.v" 1 pKold_prev2
 ~M 1 "./src/rkold_prev.v" 1 rKold_prev
 ~A 1 "./src/rkold_prev.v" 1 rKold_prev
@@ -105,5 +105,5 @@
 ~A 1 "./src/vectorxvector.v" 1 vectorXvector
 ~M 1 "./src/vectorxvector_mxv.v" 1 vectorXvector_mXv
 ~A 1 "./src/vectorxvector_mxv.v" 1 vectorXvector_mXv
-~M 1 "./src/xkold_prev.v" 1 xKold_prev
+~M 3 "./src/xkold_prev.v" 1 xKold_prev
 ~A 1 "./src/xkold_prev.v" 1 xKold_prev

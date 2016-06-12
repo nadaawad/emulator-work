@@ -1,0 +1,14 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   8_input_design_beta/8_input_design_beta.wsw
+#	modified:   8_input_design_beta/8_input_design_beta/8_input_design_beta.wsp
+#	modified:   8_input_design_beta/8_input_design_beta/elaboration.log
+#	modified:   8_input_design_beta/8_input_design_beta/log/console.log
+#	modified:   8_input_design_beta/8_input_design_beta/src/wave.asdb
+#
+
