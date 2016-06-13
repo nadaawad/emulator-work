@@ -8,12 +8,12 @@ module tb();
 	wire finish;
 	reg reset_vXv1;
 	reg reset_mXv1;
-	wire reset_cluster;
+	
 	integer counter1= 0;
 	integer counter2=0;	
 	integer counter3=0;
 	
-	top_module uut (clk,reset,finish,reset_vXv1,reset_mXv1,halt,reset_cluster);
+	top_module uut (clk,reset,finish,reset_vXv1,reset_mXv1,halt);
 	
 	initial
 		begin

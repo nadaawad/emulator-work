@@ -1,5 +1,5 @@
 `define tolerance 32'h283424DC
-module Alu(clk,reset,reset_iteration,reset_vXv1,reset_mXv1,finish_alpha,matA,pKold,pKold_v2,rKold,xKold,rKold_prev,memoryP_input,memoryR_input,memoryX_input,mul_add3_finish,iteration_counter_enable,mXv1_finish,result_mem_we_4,rkold_read_address,result_mem_we_5,result_mem_counter_5,read_again,start,read_again_2,result_mem_we_6,vXv1_finish);
+module Alu(clk,reset,reset_vXv1,reset_mXv1,matA,pKold,pKold_v2,rKold,xKold,rKold_prev,memoryP_input,memoryR_input,memoryX_input,mul_add3_finish,mXv1_finish,result_mem_we_4,rkold_read_address,result_mem_we_5,result_mem_counter_5,read_again,start,read_again_2,result_mem_we_6,vXv1_finish,finish_all);
 	
 	parameter number_of_equations_per_cluster=10;
 	parameter element_width_modified=34;
@@ -10,7 +10,7 @@ module Alu(clk,reset,reset_iteration,reset_vXv1,reset_mXv1,finish_alpha,matA,pKo
 	parameter total = number_of_equations_per_cluster+additional ; 
 	
 	
-	input wire clk,reset,reset_iteration;
+	input wire clk,reset;
 	
  
     input [element_width*(3* number_of_equations_per_cluster-2*2+2)-1:0] matA; 
@@ -27,9 +27,8 @@ module Alu(clk,reset,reset_iteration,reset_vXv1,reset_mXv1,finish_alpha,matA,pKo
 	
 	
 	
-	output reg finish_alpha;
-	//output reg finish;
-	output reg iteration_counter_enable; 
+	
+	output reg finish_all; 
 	output reg start;
       
 	
@@ -47,8 +46,9 @@ module Alu(clk,reset,reset_iteration,reset_vXv1,reset_mXv1,finish_alpha,matA,pKo
     output wire[31:0] rkold_read_address; 
 	output wire result_mem_we_5;
     output wire[31:0] result_mem_counter_5;
-	
+	output wire mul_add3_finish;
 	output wire vXv1_finish;
+	
 	
 	wire [element_width-1:0]vXv1_result;
 	wire [element_width-1:0]vXv2_result;
@@ -65,7 +65,7 @@ module Alu(clk,reset,reset_iteration,reset_vXv1,reset_mXv1,finish_alpha,matA,pKo
 	wire div2_finish;
 	wire mul_add1_finish;
 	wire mul_add2_finish;
-	output wire mul_add3_finish;
+	
 	
 	
 	wire AP_total_we;
@@ -82,7 +82,7 @@ module Alu(clk,reset,reset_iteration,reset_vXv1,reset_mXv1,finish_alpha,matA,pKo
 	reg mul_add3_start;
 	reg start_div2;
 	reg start_mul_add;
-	reg finish_flag;
+	
 	
 
 	
@@ -152,7 +152,7 @@ module Alu(clk,reset,reset_iteration,reset_vXv1,reset_mXv1,finish_alpha,matA,pKo
 		
 		always@(posedge clk)
 		begin
-			if(reset)
+			if(reset||mul_add3_finish)
 				start_mul_add<=0;
 				
 			else if(div1_finish)
@@ -166,7 +166,7 @@ module Alu(clk,reset,reset_iteration,reset_vXv1,reset_mXv1,finish_alpha,matA,pKo
 		
 		always@(posedge clk)
 		begin
-			if(reset)
+			if(reset||mul_add3_finish)
 				start<=0;
 				
 			else if(mul_add2_finish)
@@ -187,54 +187,47 @@ module Alu(clk,reset,reset_iteration,reset_vXv1,reset_mXv1,finish_alpha,matA,pKo
 		end
 	
 		
-			//always@(posedge clk)
-//		begin
-//			if(mul_add3_finish)
-//				begin
-//				iteration_counter_enable<=1;
-//				finish_flag<=1;			
-//				end
-//		end
-//		
 		
 		
 		
 	
 	always@(posedge clk)
 		begin 
-			if(!reset&&!rold_finish_flag&&vXv1_finish)
+			if(reset||mul_add3_finish)
+				begin
+					finish_all<=0;
+					rnew_finish_flag<=0;   
+					rold_finish_flag<=0; 
+					start_div2<=0;
+				end
+			else if(!reset&&!rold_finish_flag&&vXv1_finish)
 			begin
 				rold_finish_flag<=1;    // need to be zero lma abda2 iteration gdeda
 				rold<= vXv1_result;
 			end
 			
-			if(!reset&&!rnew_finish_flag&&vXv3_finish)
+			else if(!reset&&!rnew_finish_flag&&vXv3_finish)
 				begin
+					if(vXv3_result<=`tolerance)  //tolerance 
+						begin
+						finish_all<=1;	
+						end
+					
+				else
+					begin
 					rnew<=vXv3_result;
 					rnew_finish_flag<=1;  // need to be zero lma abda2 iteration gdeda
 					
-					//feh condition l tolerance hena
 					@(posedge clk);
 					start_div2<=1;
+					
+					end
 					
 				end	
 				end
 				
-		always@(posedge clk)
-			begin
-			if(reset||mul_add3_finish)
-				begin
-					 finish_flag<=0;
-					//finish<=0;
-					start_div2<=0;
-					start<=0;
-					iteration_counter_enable<=0;
-					start_mul_add<=0;	  
-					finish_alpha <=0;
-                   	rnew_finish_flag<=0;   // ma7taga ashelhom mn hena w ahtohom fe condition bta3 l iterstion
-	                rold_finish_flag<=0;	//// ma7taga ashelhom mn hena w ahtohom fe condition bta3 l iterstion
-				end	
-				end
+		
+				
 			
 	
 endmodule 

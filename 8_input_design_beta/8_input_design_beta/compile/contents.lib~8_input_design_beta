@@ -1,4 +1,4 @@
-17606
+18502
 ~M 0 "" 0 $root
 ~A 1 "" 0 $root
 ~M 1 "./src/ap_total_mem.v" 1 AP_total
@@ -59,7 +59,7 @@
 ~A 1 "./src/mxv1_full_result_prev.v" 1 mXv1_full_result_prev
 ~M 1 "./src/main_alu.v" 2 main_alu
 ~A 1 "./src/main_alu.v" 2 main_alu
-~M 3 "./src/matrix_by_vector_v3.v" 27 matrix_by_vector_v3
+~M 1 "./src/matrix_by_vector_v3.v" 27 matrix_by_vector_v3
 ~A 1 "./src/matrix_by_vector_v3.v" 27 matrix_by_vector_v3
 ~M 1 "./src/mema.v" 1 memA
 ~A 1 "./src/mema.v" 1 memA

@@ -9,7 +9,6 @@
 .\src\decoder.v
 .\src\div_nr_wsticky.v
 .\src\division.v
-.\src\first_vector_vxv_mem.v
 .\src\alu.v
 .\src\fp_div.v
 .\src\fpaddsub_8_23_uid2.v
@@ -29,18 +28,11 @@
 .\src\memp_v2.v
 .\src\memr.v
 .\src\memx.v
-.\src\mul_add_result_mem.v
-.\src\mul_add1_result_prev.v
-.\src\mul_add2_result_prev.v
 .\src\multiply.v
-.\src\mxv1_full_result_prev.v
 .\src\n_to_2n_demux.v
 .\src\outputieee_8_23_to_8_23.v
-.\src\pkold_prev.v
-.\src\pkold_prev2.v
 .\src\rkold_prev.v
 .\src\row_by_vector_module.v
-.\src\second_vector_vxv_mem.v
 .\src\tb.v
 .\src\top_module.v
 .\src\vectorxvector.v
@@ -48,6 +40,5 @@
 .\src\vxc_add_8.v
 .\src\vxc_mul3_add.v
 .\src\vxc_mul3_sub.v
-.\src\xkold_prev.v
 .\src\delay.v
 .\src\vXc_add_8_delay.v
