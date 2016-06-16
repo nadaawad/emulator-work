@@ -87,7 +87,7 @@ module vectorXvector_mXv(clk,reset,first_row_plus_additional,vector2,result,fini
 						else if(!reset)
 							begin  
 
-								if(counter2 <total/no_of_units+2)
+								if(counter2 <total/no_of_units)
 									begin 
 										AP_total_mem_we<=1;
 										@(posedge clk);
